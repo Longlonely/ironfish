@@ -148,62 +148,65 @@ ironfish_update(){
 }
 
 #8 功能补充区
+main(){
+    while true
+    do
+    echo && echo "
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix}---Iron Fish 自动管理工具---${Font_color_suffix} 
+    ${Green_font_prefix}---V0.2 yangyangcoin---${Font_color_suffix}
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix} 1.安装 docker 和 Ironfish   ${Font_color_suffix}
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix} 2.检查 node状态   ${Font_color_suffix}
+    ${Green_font_prefix} 3.开始 miner挖矿   ${Font_color_suffix}
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix} 4.查看 Wallet信息   ${Font_color_suffix}
+    ${Green_font_prefix} 5.操作 Asset 铸造，销毁，转账   ${Font_color_suffix}
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix} 6.进入 Ironfish控制台   ${Font_color_suffix}
+    ${Green_font_prefix} 7.重启节点   ${Font_color_suffix}
+    ${Green_font_prefix} 8.版本更新   ${Font_color_suffix}
+    ${Green_font_prefix}---------------------------${Font_color_suffix}
+    ${Green_font_prefix} 0.退出  ${Font_color_suffix}
+    ---------------------------" && echo
+    read -r -p " 请选择操作:" num
+    case "$num" in
+    1)
+        install_docker_ironfish
+        ;;
+    2)
+        ironfish_status
+        ;;
+    3)
+        ironfish_miner
+        ;;
+    4)
+        ironfish_wallet
+        ;;
+    5)
+        ironfish_asset
+        ;;
+    6)
+        ironfish_cli
+        ;;
+    7)
+        ironfish_restart
+        ;;
+    8)
+        ironfish_update
+        ;;
+    0)
+        echo "---退出程序！"
+        exit
+        ;;
+    *)
+        echo
+        echo -e " ${Error} 请选择正确操作："
+        ;;
+    esac
 
-while true
-do
-echo && echo "
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix}---Iron Fish 自动管理工具---${Font_color_suffix} 
-${Green_font_prefix}---V0.2 yangyangcoin---${Font_color_suffix}
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix} 1.安装 docker 和 Ironfish   ${Font_color_suffix}
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix} 2.检查 node状态   ${Font_color_suffix}
-${Green_font_prefix} 3.开始 miner挖矿   ${Font_color_suffix}
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix} 4.查看 Wallet信息   ${Font_color_suffix}
-${Green_font_prefix} 5.操作 Asset 铸造，销毁，转账   ${Font_color_suffix}
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix} 6.进入 Ironfish控制台   ${Font_color_suffix}
-${Green_font_prefix} 7.重启节点   ${Font_color_suffix}
-${Green_font_prefix} 8.版本更新   ${Font_color_suffix}
-${Green_font_prefix}---------------------------${Font_color_suffix}
-${Green_font_prefix} 0.退出  ${Font_color_suffix}
----------------------------" && echo
-read -r -p " 请选择操作:" num
-case "$num" in
-1)
-    install_docker_ironfish
-    ;;
-2)
-    ironfish_status
-    ;;
-3)
-    ironfish_miner
-    ;;
-4)
-    ironfish_wallet
-    ;;
-5)
-    ironfish_asset
-    ;;
-6)
-    ironfish_cli
-    ;;
-7)
-    ironfish_restart
-    ;;
-8)
-    ironfish_update
-    ;;
-0)
-    echo "---退出程序！"
-    exit
-    ;;
-*)
-    echo
-    echo -e " ${Error} 请选择正确操作："
-    ;;
-esac
+    done
+}
 
-done
+main
